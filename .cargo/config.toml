@@ -1,8 +1,5 @@
 [build]
-rustflags = [
-  "-C", "link-arg=-nostartfiles",
-  "-C", "link-arg=-Wl,-Tlinkall.x",
-]
+rustflags = ["-C", "link-arg=-nostartfiles"]
 target = "xtensa-esp32-none-elf"
 
 [target.xtensa-esp32-none-elf]

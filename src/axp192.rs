@@ -21,10 +21,7 @@
 //! [https://github.com/m5stack/M5-Schematic/blob/master/Core/AXP192%20Datasheet_v1.1_en_draft_2211.pdf
 //! ](https://github.com/m5stack/M5-Schematic/blob/master/Core/AXP192%20Datasheet_v1.1_en_draft_2211.pdf)
 
-#![warn(rust_2018_idioms)]
-#![no_std]
-
-use embedded_hal::blocking::i2c;
+use embedded_hal::i2c;
 
 const AXP192_ADDRESS: u8 = 0x34;
 
@@ -128,7 +125,7 @@ pub enum ShutdownDuration {
 
 impl<I2C, E> Axp192<I2C>
 where
-    I2C: i2c::Read<Error = E> + i2c::Write<Error = E> + i2c::WriteRead<Error = E>,
+    I2C: i2c::I2c<Error = E>,
 {
     /// Construct a new [`Axp192`]
     ///
